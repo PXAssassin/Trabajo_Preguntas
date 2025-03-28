@@ -29,8 +29,10 @@ public class LeerPreguntasMultiples : MonoBehaviour
     public TextMeshProUGUI txtrespuesta2;
     public TextMeshProUGUI txtrespuesta3;
     public TextMeshProUGUI txtrespuesta4;
+    public TextMeshProUGUI txtdificultad;
     //______________________________________________________________________
 
+    //Para acciones de los botones /activa /desactivar
     public Button btnOpcion1;
     public Button btnOpcion2;
     public Button btnOpcion3;
@@ -97,7 +99,7 @@ public class LeerPreguntasMultiples : MonoBehaviour
     }
     //______________________________________________________________________
 
-
+    #region MostrrarPreguntas
 
     //logica de seleccion de preguntas
     //______________________________________________________________________
@@ -116,6 +118,7 @@ public class LeerPreguntasMultiples : MonoBehaviour
         txtrespuesta3.text = preguntasMfacil[i].Respuesta3;
         txtrespuesta4.text = preguntasMfacil[i].Respuesta4;
         respuestaCorrecta = preguntasMfacil[i].RespuestaCorrecta;
+        txtdificultad.text = preguntasMfacil[i].Dificultad;
     }
     public void mostrarPreguntaDificil()
     {
@@ -132,14 +135,14 @@ public class LeerPreguntasMultiples : MonoBehaviour
         txtrespuesta3.text = preguntasMdificil[i].Respuesta3;
         txtrespuesta4.text = preguntasMdificil[i].Respuesta4;
         respuestaCorrecta = preguntasMdificil[i].RespuestaCorrecta;
+        txtdificultad.text = preguntasMdificil[i].Dificultad;
     }
     //______________________________________________________________________
+    #endregion
 
-
-
+    #region LogicaRespuestas
     //______________________________________________________________________
     //logica botones de respuestas
-
     public void respuesta1()
     {
         btnOpcion1.interactable = false;
@@ -178,7 +181,10 @@ public class LeerPreguntasMultiples : MonoBehaviour
         enviarSeñalMP(istrue);
     }
     //______________________________________________________________________
+    #endregion
 
+
+    #region Señal
     //logica
     public void enviarSeñalMP(bool istrue)
     {
@@ -188,5 +194,6 @@ public class LeerPreguntasMultiples : MonoBehaviour
             gcseñalenviada.ActualizarStatsJuego(istrue);
         }
     }
-    
+    #endregion
+
 }

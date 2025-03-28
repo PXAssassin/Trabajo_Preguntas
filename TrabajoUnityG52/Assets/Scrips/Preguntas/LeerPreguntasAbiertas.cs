@@ -25,6 +25,7 @@ public class LeerPreguntasAbiertas : MonoBehaviour
 
 
     // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         PreguntasAbiertasMethod();
@@ -94,7 +95,8 @@ public class LeerPreguntasAbiertas : MonoBehaviour
         txtDificultad.text = preguntasAbDificiles[i].Dificultad;
     }
     #endregion
-    
+
+    #region Señales
     public void continuar()
     {
         bool istrue = true;
@@ -109,5 +111,5 @@ public class LeerPreguntasAbiertas : MonoBehaviour
             gcseñalenviada.SeñalRecibida_AB(istrue);
         }
     }
-
+    #endregion
 }

@@ -80,6 +80,8 @@ public class LeerPreguntasFalsoVerdadero : MonoBehaviour
 
 
 
+
+    #region MostrarPreguntas
     //logica de seleccion de preguntas
     //______________________________________________________________________
     public void mostrarPreguntaFacil()
@@ -105,7 +107,7 @@ public class LeerPreguntasFalsoVerdadero : MonoBehaviour
 
         }
         txtVersiculo.text = preguntasFVfaciles[i].Versiculo;
-        txtDificultad.text = "Dificultad : " + preguntasFVfaciles[i].Dificultad;
+        txtDificultad.text = preguntasFVfaciles[i].Dificultad;
     }
 
     public void mostrarPreguntaDificil()
@@ -131,18 +133,15 @@ public class LeerPreguntasFalsoVerdadero : MonoBehaviour
 
         }
         txtVersiculo.text = preguntasFVdificiles[i].Versiculo;
-        txtDificultad.text = "Dificultad : "+preguntasFVdificiles[i].Dificultad;
+        txtDificultad.text = preguntasFVdificiles[i].Dificultad;
     }
     //______________________________________________________________________
+    #endregion
 
-
-
+    #region LogicaRespuestas
     //______________________________________________________________________
     //logica botones de respuestas
-
-
-    
-     public void respuesta1()
+    public void respuesta1()
      {
         btnOpcion1.interactable = false;
         btnOpcion2.interactable = false;
@@ -156,10 +155,12 @@ public class LeerPreguntasFalsoVerdadero : MonoBehaviour
         bool istrue = txtopcion2.text.Equals(respustaCorrecta);
         enviarSeñalFV(istrue);
      }
-     //______________________________________________________________________
+    //______________________________________________________________________
+    #endregion
 
-     //logica
-     public void enviarSeñalFV(bool istrue)
+    #region Señal
+    //logica
+    public void enviarSeñalFV(bool istrue)
      {
          GameControllerPregunta gcseñalenviada = GameObject.FindObjectOfType<GameControllerPregunta>();
          if (gcseñalenviada != null)
@@ -167,5 +168,5 @@ public class LeerPreguntasFalsoVerdadero : MonoBehaviour
              gcseñalenviada.ActualizarStatsJuego(istrue);
          }
      }
-    
+    #endregion
 }
